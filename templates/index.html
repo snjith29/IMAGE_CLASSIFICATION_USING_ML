@@ -1,0 +1,108 @@
+<html>
+{% extends 'base.html' %}
+{% block pagetitle %}
+AI Engine
+{% endblock pagetitle %}
+
+{% block body %}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Live Detection</title>
+</head>
+<body>
+<div>
+    
+    <div class="container">
+        <!-- For demo purpose -->
+        <div class="row mb-5 text-center text-white">
+            <div class="col-lg-10 mx-auto">
+                <h1 class="display-4" style="padding-top: 2%;font-weight: 400;color: rgb(241, 243, 241);"><b>AI Engine</b></h1>
+                
+            </div>
+        </div>
+        <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
+        <script>
+            function loadGoogleTranslate() {
+                new google.translate.TranslateElement("myid")
+            }
+        </script>
+        <div id="myid"></div>
+        <!-- End -->
+        <div class="row " >
+            <div class="col mx-auto">
+                <div class="p-5 bg-white shadow rounded-lg" style="width: 98%";  height: "98px";  background-color:" aquamarine" color="green">
+
+                    <h5><b>Why is it necessary to detect disease in plant ?</b></h5>
+                   <h5> <p>Plant Disease Identification Importance:<br><br>
+                      <li> Essential for plant health, growth, and production.</li> 
+                      <li> Rapid development can harm plants, soil, and ecosystem.   </li> 
+                      <li>Careful maintenance crucial for plant recovery.<br><br>
+                       <li> Early identification aids in appropriate therapy.</li>
+                      <li>  Plant caregivers monitor changes to prevent illness spread.</li>
+                       <li> • Plant doctors provide love, care, and attention for crops.</p></h5>
+                </div>
+            </div>
+            <div class="col mx-auto">
+                <div class="p-5 bg-white shadow rounded-lg" style="height: 98%;">
+
+                    <!-- Default bootstrap file upload-->
+                    <h3>Live Detection</h3><br>
+                   <center></center> <img  src="{{ url_for('video_feed') }}" width="200" height="200" aria-placeholder="Live Detection"/></center>
+                </body><br>
+                <center>
+                    <br>
+                    <a class="mx-2"><button type="submit" class="btn btn-outline-success">Capture</button></a>
+                </center>
+
+                    <form action="/submit" method="POST" enctype="multipart/form-data">
+                        <div class="custom-file overflow-hidden mb-4"><br>
+                            <input type="file" id="actual-btn" hidden name="image" />
+                            <label for="actual-btn">Choose File</label>
+                            <span id="file-chosen">No file chosen</span>
+                        </div>
+
+                        <!-- End -->
+
+                        <h6 class="text-center mb-4 text-muted">
+                            Simply upload your plant's leaf image and then see the magic of AI.
+                        </h6>
+
+                        <!-- Custom bootstrap upload file-->
+                        <center>
+                            <a class="mx-2"><button type="submit" class="btn btn-outline-success">Submit</button></a>
+                        </center>
+                    </form>
+                    <!-- End -->
+
+                </div>
+            </div>
+            <div class="col mx-auto">
+                <div class="p-5 bg-white shadow rounded-lg" style="height: 98%;">
+                    <h5><b>To avoid plant disease, do the following actions:</b></h5>
+                    <ol>
+                        <li>Adhere to good hygiene procedures.</li>
+                        <li>Fertilize to Keep Your Plants Healthy.Before bringing plants home, make sure they are free of diseases.</li> 
+                        <li>Let the Soil Warm Up a Little Before Planting.</li>
+                         <li>Rotate your crops to ensure a healthy vegetable garden.</li>
+                          <li>Make sure there is adequate air circulation</li>
+                           <li>Eliminate Sick Stems and Foliage</li>
+                    </ol>
+                    <a target="_blank" href="https://www.thespruce.com/prevent-plant-diseases-in-your-garden-2539511"
+                        class="mx-2"><button type="button" class="btn btn-outline-success">More info</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const actualBtn = document.getElementById('actual-btn');
+
+    const fileChosen = document.getElementById('file-chosen');
+
+    actualBtn.addEventListener('change', function () {
+        fileChosen.textContent = this.files[0].name
+    })
+</script>
+</html>
+{% endblock body %}
